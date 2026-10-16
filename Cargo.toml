@@ -1,0 +1,23 @@
+[package]
+name = "photocraft-depth-studio"
+version = "1.0.1"
+edition = "2024"
+license = "MIT OR Apache-2.0"
+rust-version = "1.95"
+
+[workspace]
+resolver = "3"
+members = ["."]
+exclude = ["vendor", "native"]
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+photocraft-plugin-sdk = { path = "vendor/plugin-sdk", version = "0.1.0" }
+
+[build-dependencies]
+photocraft-plugin-sdk = { path = "vendor/plugin-sdk", version = "0.1.0", features = ["authoring"] }
+
+[lints.rust]
+unsafe_code = "deny"

@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "HostApi",
+  "description": "Public discovery metadata, containing no authority or credentials.",
+  "type": "object",
+  "properties": {
+    "capabilities": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/CapabilitySupport"
+      },
+      "maxItems": 32
+    },
+    "version": {
+      "type": "integer",
+      "format": "uint16",
+      "maximum": 1,
+      "minimum": 1
+    }
+  },
+  "additionalProperties": false,
+  "required": [
+    "version",
+    "capabilities"
+  ],
+  "$defs": {
+    "CapabilityId": {
+      "description": "Extensible capability identifier. Unknown optional IDs survive parsing and negotiate absent.",
+      "type": "string",
+      "maxLength": 96,
+      "minLength": 1,
+      "pattern": "^[a-z0-9][a-z0-9._-]*$"
+    },
+    "CapabilitySupport": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/CapabilityId"
+        },
+        "version": {
+          "type": "integer",
+          "format": "uint16",
+          "maximum": 1024,
+          "minimum": 1
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "version"
+      ]
+    }
+  }
+}

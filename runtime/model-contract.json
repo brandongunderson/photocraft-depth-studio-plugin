@@ -1,0 +1,39 @@
+{
+  "formatVersion": 1,
+  "model": "models/depth-anything-v2-small.onnx",
+  "sha256": "afb6a5c28f3b6bf1618c6e43f02073ef9dfdc70e937502d51603e57b0a1df10c",
+  "size": 99060839,
+  "onnxIrVersion": 9,
+  "onnxOpset": 14,
+  "producer": { "name": "pytorch", "version": "2.3.0" },
+  "input": {
+    "name": "pixel_values",
+    "type": "float32",
+    "layout": "NCHW",
+    "shape": ["batch_size", 3, "height", "width"],
+    "pluginBatchSize": 1,
+    "color": "RGB",
+    "rescale": "channel / 255.0",
+    "normalize": "(rescaledChannel - mean[channel]) / std[channel]",
+    "mean": [0.485, 0.456, 0.406],
+    "std": [0.229, 0.224, 0.225],
+    "spatialMultiple": 14,
+    "recommendedSize": 518,
+    "padding": false
+  },
+  "output": {
+    "name": "predicted_depth",
+    "type": "float32",
+    "layout": "NHW",
+    "shape": ["batch_size", "14*floor(height/14)", "14*floor(width/14)"],
+    "meaning": "Relative inverse depth: larger values indicate nearer regions.",
+    "metric": false,
+    "postprocessing": "Resize to the source dimensions, check finite values, normalize per image for visualization/focus controls. Preserve the source alpha separately."
+  },
+  "verification": {
+    "onnxChecker": "passed",
+    "runtime": "ONNX Runtime 1.22.0 CPUExecutionProvider",
+    "testedInputShapes": [[1, 3, 518, 518], [1, 3, 224, 336]],
+    "testedOutputShapes": [[1, 518, 518], [1, 224, 336]]
+  }
+}

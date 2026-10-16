@@ -1,0 +1,125 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "PanelResponse",
+  "description": "Bounded response for the current PhotoCraft Plugin API.",
+  "type": "object",
+  "properties": {
+    "commands": {
+      "type": "array",
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/CommandInvocation"
+      },
+      "maxItems": 32
+    },
+    "message": {
+      "type": "string",
+      "default": "",
+      "maxLength": 4096
+    },
+    "requests": {
+      "type": "array",
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/BrokerRequest"
+      },
+      "maxItems": 8
+    },
+    "state": {
+      "default": null
+    },
+    "view": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/InspectorView"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "BrokerRequest": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "maxLength": 64,
+          "minLength": 1
+        },
+        "method": {
+          "type": "string",
+          "maxLength": 96,
+          "minLength": 1
+        },
+        "params": {
+          "type": "object",
+          "additionalProperties": true,
+          "default": {}
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "method"
+      ]
+    },
+    "CommandInvocation": {
+      "type": "object",
+      "properties": {
+        "command": {
+          "type": "string"
+        },
+        "params": {
+          "type": "object",
+          "additionalProperties": true
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "command",
+        "params"
+      ]
+    },
+    "InspectorRow": {
+      "type": "object",
+      "properties": {
+        "label": {
+          "type": "string",
+          "maxLength": 128,
+          "minLength": 1
+        },
+        "value": {
+          "type": "string",
+          "maxLength": 1024
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "label",
+        "value"
+      ]
+    },
+    "InspectorView": {
+      "type": "object",
+      "properties": {
+        "rows": {
+          "type": "array",
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/InspectorRow"
+          },
+          "maxItems": 64
+        },
+        "title": {
+          "type": "string",
+          "default": "",
+          "maxLength": 128
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

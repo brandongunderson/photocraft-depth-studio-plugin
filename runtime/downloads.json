@@ -1,0 +1,156 @@
+{
+  "formatVersion": 1,
+  "checkedAt": "2026-10-16",
+  "model": {
+    "name": "Depth Anything V2 Small",
+    "variant": "relative-depth / float32 ONNX",
+    "modelRepository": "https://huggingface.co/onnx-community/depth-anything-v2-small",
+    "modelRevision": "4472b7362082ad9968fee890ca0f1e5aca36b93d",
+    "baseModelRepository": "https://huggingface.co/depth-anything/Depth-Anything-V2-Small",
+    "baseModelRevision": "03876f8651c73a60fe4c2c48294e09fcb6838fcf",
+    "upstreamRepository": "https://github.com/DepthAnything/Depth-Anything-V2",
+    "upstreamRevision": "a561b849ebae10a6f5ef49e26c83cbbcd36c71bf",
+    "license": "Apache-2.0"
+  },
+  "onnxRuntimeVersion": "1.22.0",
+  "archives": [
+    {
+      "id": "onnxruntime",
+      "format": "zip",
+      "url": "https://github.com/microsoft/onnxruntime/releases/download/v1.22.0/onnxruntime-win-x64-1.22.0.zip",
+      "sha256": "174c616efc0271194488642a72f1a514e01487da4dfe84c49296d66e40ebe0da",
+      "size": 72368545
+    },
+    {
+      "id": "vc-runtime",
+      "format": "vc-redist-cab",
+      "url": "https://download.visualstudio.microsoft.com/download/pr/990c720a-46ce-4dc7-87b9-c2eb615d34b9/CC0FF0EB1DC3F5188AE6300FAEF32BF5BEEBA4BDD6E8E445A9184072096B713B/VC_redist.x64.exe",
+      "sha256": "cc0ff0eb1dc3f5188ae6300faef32bf5beeba4bdd6e8e445a9184072096b713b",
+      "size": 25635768,
+      "version": "14.44.35211.0",
+      "uxOffset": 479744,
+      "uxSize": 195988,
+      "payloadOffset": 686152,
+      "payloadSize": 24939223,
+      "minimumMember": "a12"
+    }
+  ],
+  "files": [
+    {
+      "path": "models/depth-anything-v2-small.onnx",
+      "url": "https://huggingface.co/onnx-community/depth-anything-v2-small/resolve/4472b7362082ad9968fee890ca0f1e5aca36b93d/onnx/model.onnx?download=true",
+      "sha256": "afb6a5c28f3b6bf1618c6e43f02073ef9dfdc70e937502d51603e57b0a1df10c",
+      "size": 99060839
+    },
+    {
+      "path": "bin/onnxruntime.dll",
+      "archive": "onnxruntime",
+      "member": "onnxruntime-win-x64-1.22.0/lib/onnxruntime.dll",
+      "sha256": "579b636403983254346a5c1d80bd28f1519cd1e284cd204f8d4ff41f8d711559",
+      "size": 12418080
+    },
+    {
+      "path": "bin/onnxruntime_providers_shared.dll",
+      "archive": "onnxruntime",
+      "member": "onnxruntime-win-x64-1.22.0/lib/onnxruntime_providers_shared.dll",
+      "sha256": "ba00ea1ef846c9b909c7854bc56c51051a20f9773b3e1153dda118d4b85d0b93",
+      "size": 22064
+    },
+    {
+      "path": "licenses/onnxruntime-LICENSE",
+      "archive": "onnxruntime",
+      "member": "onnxruntime-win-x64-1.22.0/LICENSE",
+      "sha256": "c250d6278f0b47a6439fb7592b08b58a55eb9f535aa49a1db63211c3f982b674",
+      "size": 1094
+    },
+    {
+      "path": "licenses/onnxruntime-ThirdPartyNotices.txt",
+      "archive": "onnxruntime",
+      "member": "onnxruntime-win-x64-1.22.0/ThirdPartyNotices.txt",
+      "sha256": "e00f828e0a33de591a355ae6606d2625f5758da7d2c844db7821c9dd3e3647b6",
+      "size": 333022
+    },
+    {
+      "path": "bin/msvcp140.dll",
+      "archive": "vc-runtime",
+      "member": "msvcp140.dll_amd64",
+      "container": "minimum",
+      "sha256": "0f885b509a685d2bbfa652fed26b5fb31d88fbdab0a978c641d1c7b8aa460aa9",
+      "size": 557728
+    },
+    {
+      "path": "bin/msvcp140_1.dll",
+      "archive": "vc-runtime",
+      "member": "msvcp140_1.dll_amd64",
+      "container": "minimum",
+      "sha256": "bfad5aef4c63a669e3c140655cdfdf395b6c979b400a447bd5dcb65ed8826c3d",
+      "size": 35952
+    },
+    {
+      "path": "bin/vcruntime140.dll",
+      "archive": "vc-runtime",
+      "member": "vcruntime140.dll_amd64",
+      "container": "minimum",
+      "sha256": "d5e4d9a3e835fa679450145d6a7d94e36573a509317111904d9b3712c30d9066",
+      "size": 124544
+    },
+    {
+      "path": "bin/vcruntime140_1.dll",
+      "archive": "vc-runtime",
+      "member": "vcruntime140_1.dll_amd64",
+      "container": "minimum",
+      "sha256": "1f2d41c4aa5db0bc33ebf7b66d72943a817d7ce6cbe880502a9403823633093f",
+      "size": 49792
+    },
+    {
+      "path": "licenses/MICROSOFT-VC-RUNTIME-LICENSE.rtf",
+      "archive": "vc-runtime",
+      "member": "u4",
+      "container": "ux",
+      "sha256": "8099dc3cf9502c335da829e5c755948a12e3e6de490eb492a99deb673d883d8b",
+      "size": 9235
+    },
+    {
+      "path": "licenses/DEPTH-ANYTHING-V2-LICENSE",
+      "url": "https://raw.githubusercontent.com/DepthAnything/Depth-Anything-V2/a561b849ebae10a6f5ef49e26c83cbbcd36c71bf/LICENSE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+      "size": 11357
+    },
+    {
+      "path": "licenses/DEPTH-ANYTHING-V2-README.md",
+      "url": "https://raw.githubusercontent.com/DepthAnything/Depth-Anything-V2/a561b849ebae10a6f5ef49e26c83cbbcd36c71bf/README.md",
+      "sha256": "987d1ab991c1b149276a0426bec7d8f3472d85c29ec976d96ea657aa960fad50",
+      "size": 9904
+    },
+    {
+      "path": "licenses/DEPTH-ANYTHING-V2-SMALL-MODEL-CARD.md",
+      "url": "https://huggingface.co/depth-anything/Depth-Anything-V2-Small/raw/03876f8651c73a60fe4c2c48294e09fcb6838fcf/README.md",
+      "sha256": "d96b19c959007126110b199a7c2e9c24530b61796a26f1af035420625a10f916",
+      "size": 1958
+    },
+    {
+      "path": "licenses/ONNX-COMMUNITY-MODEL-CARD.md",
+      "url": "https://huggingface.co/onnx-community/depth-anything-v2-small/raw/4472b7362082ad9968fee890ca0f1e5aca36b93d/README.md",
+      "sha256": "2fdd0db4eb5d7725fe0f1522e03a63f0b3c7dc93c805669f3322f665fb3b4c86",
+      "size": 1578
+    },
+    {
+      "path": "licenses/TRANSFORMERS-LICENSE",
+      "url": "https://raw.githubusercontent.com/huggingface/transformers/174890280b340b89c5bfa092f6b4fb0e2dc2d7fc/LICENSE",
+      "sha256": "77fd4710def9ec3c0f6225800e0235f15a425abd4a8b03559127fcd782612049",
+      "size": 11418
+    },
+    {
+      "path": "models/preprocessor_config.json",
+      "url": "https://huggingface.co/onnx-community/depth-anything-v2-small/raw/4472b7362082ad9968fee890ca0f1e5aca36b93d/preprocessor_config.json",
+      "sha256": "03576db3c13dd0471fdf5f5e1428befcb95de063fe699879150b293dc9e0a2c6",
+      "size": 461
+    },
+    {
+      "path": "models/config.json",
+      "url": "https://huggingface.co/onnx-community/depth-anything-v2-small/raw/4472b7362082ad9968fee890ca0f1e5aca36b93d/config.json",
+      "sha256": "3aee5b9bc4f711ee885c2526d871f0c8c6c8c4b26b8e04253d0167f6a83264f5",
+      "size": 38
+    }
+  ]
+}
